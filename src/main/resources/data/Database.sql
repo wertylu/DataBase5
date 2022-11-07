@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS steam;
 DROP TABLE IF EXISTS game;
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS platform;
+DROP TABLE IF EXISTS credit_score;
 
 
 CREATE TABLE platform
@@ -23,10 +24,12 @@ CREATE TABLE user
     surname     VARCHAR(50) NOT NULL,
     age         INT         NOT NULL,
     platform_id INT         NULL,
+    credit_score_id INT      NULL,
     CONSTRAINT FK_user_platform_platform
         FOREIGN KEY (platform_id)
             REFERENCES platform (id)
             ON DELETE CASCADE ON UPDATE SET NULL
+
 
 );
 
@@ -62,7 +65,11 @@ CREATE TABLE steam_has_game
     CONSTRAINT FOREIGN KEY (game_id) REFERENCES game (id)
 );
 
-
+CREATE TABLE credit_score
+(
+    id   INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL
+);
 
  insert into platform
  values (1, 'Windows'),
@@ -71,11 +78,11 @@ CREATE TABLE steam_has_game
 
 
  insert into user
- values (1, 'Roman', 'Onyshkiv',18,1),
-        (2, 'Rostyk','Postolaki', 19, 3),
-        (3, 'John', 'Doe', 45, 2),
-        (4, 'Gustavo', 'Sus', 55, 2),
-       (5, 'Steve', 'Jobless', 70, 1 );
+ values (1, 'Roman', 'Onyshkiv',18,1, 1),
+        (2, 'Rostyk','Postolaki', 19, 3, 2),
+        (3, 'John', 'Doe', 45, 2, 3),
+        (4, 'Gustavo', 'Sus', 55, 2, 4),
+       (5, 'Steve', 'Jobless', 70, 1, 5 );
 
 
  insert into game
@@ -106,3 +113,8 @@ insert into steam
         (5,2);
 
 
+INSERT INTO credit_score (name) VALUES ('good' );
+INSERT INTO credit_score (name) VALUES ('bad' );
+INSERT INTO credit_score (name) VALUES ('not good');
+INSERT INTO credit_score (name) VALUES ('not bad');
+INSERT INTO credit_score (name) VALUES ('never gonna give u up');

@@ -15,6 +15,7 @@ import kyiv.harvard.lois.database5.dto.SteamDto;
 import kyiv.harvard.lois.database5.dto.assembler.GameDtoAssembler;
 import kyiv.harvard.lois.database5.dto.assembler.SteamDtoAssembler;
 import kyiv.harvard.lois.database5.service.SteamService;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.Link;
@@ -22,6 +23,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -77,4 +79,14 @@ public class SteamController {
         steamService.delete(steamId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @Transactional
+    @PostMapping(value = "/relationship")
+    public ResponseEntity<?> addDriverHasCarRelationship(@RequestBody JSONObject jsonObject) {
+        steamService.addSteamHasGameRelationship(Integer.valueOf(jsonObject.getAsString("money_on_steam")), jsonObject.getAsString("game_genre"));
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
 }

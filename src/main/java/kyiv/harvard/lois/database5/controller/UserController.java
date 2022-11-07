@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -70,5 +71,18 @@ public class UserController {
     public ResponseEntity<?> deleteUser(@PathVariable Integer userId) {
         userService.delete(userId);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Transactional
+    @PostMapping(value = "/procedure_insert")
+    public ResponseEntity<UserDto> addUserWithProcedure(@RequestBody User user) {
+        User newUser = userService.addUserWithProcedure(user.getName(), user.getAge());
+        UserDto userDto = userDtoAssembler.toModel(newUser);
+        return new ResponseEntity<>(userDto, HttpStatus.CREATED);
+    }
+    @GetMapping(value = "/average_age")
+    public ResponseEntity<Integer> getAverageAge() {
+        Integer avgAge = userService.getAverageAge();
+        return new ResponseEntity<>(avgAge, HttpStatus.OK);
     }
 }

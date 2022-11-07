@@ -33,6 +33,11 @@ public class SteamServiceImpl implements SteamService {
     }
 
     @Override
+    public void addSteamHasGameRelationship(Integer moneyOnSteam, String gameGemre) {
+        steamRepository.addSteamHasGameRelationship(moneyOnSteam, gameGemre);
+    }
+
+    @Override
     public List<Steam> findAll() {
         return steamRepository.findAll();
     }

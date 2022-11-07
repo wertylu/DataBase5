@@ -23,6 +23,13 @@ public class GameServiceImpl implements GameService {
     @Autowired
     PlatformRepository platformRepository;
 
+
+    @Override
+    public void createTablesWithCursor() {
+        gameRepository.createTablesWithCursor();
+    }
+
+
     @Override
     public List<Game> findGameByGenre(String genre) {
         return gameRepository.findGameByGenre(genre);

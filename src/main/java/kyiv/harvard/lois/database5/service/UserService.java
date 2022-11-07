@@ -13,4 +13,6 @@ import java.util.List;
 
 public interface UserService extends GeneralService<User, Integer> {
     List<User> findUsersByPlatformId(Integer platformId);
+    User addUserWithProcedure(String name, Integer age);
+    Integer getAverageAge();
 }

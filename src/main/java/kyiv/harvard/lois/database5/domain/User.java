@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user", schema = "steam_db", catalog = "")
+@Table(name = "user", schema = "steam_db")
 public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -26,8 +26,11 @@ public class User {
     @Basic
     @Column(name = "age")
     private Integer age;
+    @Basic
+    @Column(name = "credit_score_id")
+    private Integer creditScoreId;
     @ManyToOne
-    @JoinColumn(name = "platform_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "platform_id", referencedColumnName = "id")
     private Platform platform;
 
 
@@ -82,5 +85,13 @@ public class User {
 
     public void setPlatform(Platform platform) {
         this.platform = platform;
+    }
+
+    public Integer getCreditScoreId() {
+        return creditScoreId;
+    }
+
+    public void setCreditScoreId(Integer creditScoreId) {
+        this.creditScoreId = creditScoreId;
     }
 }

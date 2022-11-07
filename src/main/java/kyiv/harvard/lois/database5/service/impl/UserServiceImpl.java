@@ -41,8 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public User create(User user) {
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
     }
 
     @Transactional
@@ -69,4 +68,15 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new PlatformNotFoundException(platformId));
         return platform.getUsers();
     }
+
+    @Override
+    public User addUserWithProcedure(String name, Integer age) {
+        return userRepository.addUserWithProcedure(name, age);
+    }
+
+    @Override
+    public Integer getAverageAge() {
+        return userRepository.getAverageAge();
+    }
+
 }

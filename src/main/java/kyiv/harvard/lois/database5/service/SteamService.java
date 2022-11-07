@@ -16,4 +16,5 @@ import java.util.List;
 
 public interface SteamService extends GeneralService<Steam, Integer> {
     List<Game> findGamesBySteamId(Integer steamId);
+    void addSteamHasGameRelationship(Integer moneyOnSteam, String gameGenre);
 }

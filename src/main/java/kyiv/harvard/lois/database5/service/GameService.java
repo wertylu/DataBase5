@@ -15,4 +15,5 @@ import java.util.List;
 
 public interface GameService extends GeneralService<Game, Integer> {
     List<Game> findGameByGenre(String genre);
+    void createTablesWithCursor();
 }

@@ -2,12 +2,10 @@
  * @author @liosyk
  * Project name: DataBase5
  * Package name: kyiv.harvard.lois.database5.dto
- * Class: UserDto
+ * Class: CreditScoreDto
  **/
 
 package kyiv.harvard.lois.database5.dto;
-
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -19,13 +17,8 @@ import org.springframework.hateoas.server.core.Relation;
 @Getter
 @EqualsAndHashCode(callSuper = false)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Relation(itemRelation = "user", collectionRelation = "users")
-public class UserDto extends RepresentationModel<UserDto> {
-    private Integer id;
-    private String name;
-    private String surname;
-    private Integer age;
-    private String platform;
-    private final Integer creditScoreId;
+@Relation(itemRelation = "creditScore", collectionRelation = "creditScores")
+public class CreditScoreDto extends RepresentationModel<CreditScoreDto> {
+    private final Integer id;
+    private final String name;
 }
-

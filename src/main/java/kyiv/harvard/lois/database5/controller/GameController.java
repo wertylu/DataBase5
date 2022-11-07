@@ -62,4 +62,9 @@ public class GameController {
         gameService.delete(gameId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @PostMapping(value = "/cursor")
+    public ResponseEntity<?> createTablesWithCursor() {
+        gameService.createTablesWithCursor();
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
