@@ -1,9 +1,4 @@
-/**
- * @author RoSteik (Telegram: @RoSteik)
- * Project: rostyk
- * Package: iot.lviv.ua.rostyk.controller
- * Class: SteamController
- */
+
 
 package kyiv.harvard.lois.database5.controller;
 
