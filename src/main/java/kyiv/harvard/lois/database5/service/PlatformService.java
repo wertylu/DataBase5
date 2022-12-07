@@ -1,9 +1,4 @@
-/**
- * Created by RoSteik (Telegram: @RoSteik)
- * Project name: rostyk
- * Package name: iot.lviv.ua.rostyk.service
- * Interface: TripService
- */
+
 
 package kyiv.harvard.lois.database5.service;
 

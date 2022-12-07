@@ -1,9 +1,4 @@
-/**
- * @author RoSteik (Telegram: @RoSteik)
- * Project: rostyk
- * Package: iot.lviv.ua.rostyk.service.impl
- * Class: UserServiceImpl
- */
+
 
 package kyiv.harvard.lois.database5.service.impl;
 

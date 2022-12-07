@@ -1,9 +1,4 @@
-/**
- * @author RoSteik (Telegram: @RoSteik)
- * Project: rostyk
- * Package: iot.lviv.ua.rostyk.exception
- * Class: DriverNotFoundException
- */
+
 
 package kyiv.harvard.lois.database5.exception;
 

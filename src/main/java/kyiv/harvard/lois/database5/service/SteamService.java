@@ -1,9 +1,3 @@
-/**
- * Created by RoSteik (Telegram: @RoSteik)
- * Project name: rostyk
- * Package name: iot.lviv.ua.rostyk.service
- * Interface: DriverService
- */
 
 package kyiv.harvard.lois.database5.service;
 
