@@ -19,7 +19,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                .apis(RequestHandlerSelectors.basePackage("kyiv.harvard.lois.database5.configger"))
+                .apis(RequestHandlerSelectors.basePackage("kyiv.harvard.lois.database5.controller"))
                 .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiInfoMetaData());
     }
