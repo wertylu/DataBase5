@@ -34,3 +34,4 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         default_schema: public
+
